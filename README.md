@@ -1,0 +1,2 @@
+# traducoes
+Traduções de Scripts
