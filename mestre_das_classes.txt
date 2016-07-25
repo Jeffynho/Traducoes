@@ -2,11 +2,11 @@
 //= Mestre das Classes
 //===== By: ==================================================
 //= Euphy
-//===== CVersão Atual: =======================================
+//===== VersÃ£o Atual: =======================================
 //= 1.5
 //===== Description: =========================================
 //= Altera sua classe sem necessidade de quest.
-//===== Comentários Adicionais: ==============================
+//===== ComentÃ¡rios Adicionais: ==============================
 //= 1.1 Fixed reset on Baby job change. [Euphy]
 //= 1.2 Added Expanded Super Novice support and initial Kagerou/Oboro support. [Euphy]
 //= 1.3 Kagerou/Oboro added. [Euphy]
@@ -14,7 +14,7 @@
 //      numbers with constants; Changed syntax to match
 //      Hercules standards; Fixed status point exploit upon
 //      Baby Novice job change. [Haru]
-//= 1.5 Script traduzido e sprite alterada. [Jéffynho(Mytho)]
+//= 1.5 Script traduzido e sprite alterada. [JÃ©ffynho(Mytho)]
 //============================================================
 
 prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
@@ -23,7 +23,7 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 	mes "^FF0000[Mestre das Classes]^000000";
 	if (Class > Job_Soul_Linker) {
 		mes "Que bom te ver de novo ^008aff"+strcharinfo(0)+"^000000!";
-		mes "O dia está lindo, não acha?";
+		mes "O dia estÃ¡ lindo, nÃ£o acha?";
 		close;
 	}
 	if (checkfalcon() || checkcart() || checkmount() || hascashmount()) {
@@ -32,7 +32,7 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 		close;
 	}
 	if (.skill_point_check && SkillPoint > 0) {
-		mes "Você precisa utilizar todos os seus pontos de habilidade antes de mudar de classe.";
+		mes "VocÃª precisa utilizar todos os seus pontos de habilidade antes de mudar de classe.";
 		close;
 	}
 
@@ -42,9 +42,9 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 		if (BaseLevel < .rebirth_blevel || JobLevel < .rebirth_jlevel) {
 			.@blvl = .rebirth_blevel - BaseLevel;
 			.@jlvl = .rebirth_jlevel - JobLevel;
-			mes "Você precisa alcançar mais "
-			    + (BaseLevel < .rebirth_blevel ? ((.rebirth_blevel - BaseLevel) +" níveis de base "+ (JobLevel < .rebirth_jlevel ? "e mais " : "")) : "")
-			    + (JobLevel < .rebirth_jlevel ? (.rebirth_jlevel - JobLevel) +" níveis de classe " : "")
+			mes "VocÃª precisa alcanÃ§ar mais "
+			    + (BaseLevel < .rebirth_blevel ? ((.rebirth_blevel - BaseLevel) +" nÃ­veis de base "+ (JobLevel < .rebirth_jlevel ? "e mais " : "")) : "")
+			    + (JobLevel < .rebirth_jlevel ? (.rebirth_jlevel - JobLevel) +" nÃ­veis de classe " : "")
 			    + "para continuar evoluindo.";
 			close;
 		}
@@ -55,13 +55,13 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 			close;
 		}
 		while (true) {
-			mes "Selecione uma opção.";
+			mes "Selecione uma opÃ§Ã£o.";
 			next;
 			.@choice = select(" ~ ^0055FFRenascer^000000", (.third_classes ? " ~ ^FF0000Terceira classe^000000":""), " ~ ^777777Cancelar^000000");
 			if (.@choice == 3)
 				close;
 			mes "^FF0000[Mestre das Classes]^000000";
-			mes "Você tem certeza disso?";
+			mes "VocÃª tem certeza disso?";
 			next;
 			if (.@choice == 1)
 				Job_Menu(Job_Novice_High);
@@ -81,9 +81,9 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 	}
 	if (.@newclass && .third_classes) {
 		if (BaseLevel < .rebirth_blevel || JobLevel < .@required_jlevel) {
-			mes "Você precisa alcançar mais "
-			    + (BaseLevel < .rebirth_blevel ? ((.rebirth_blevel - BaseLevel) +" níveis de base "+ (JobLevel < .@required_jlevel ? "e mais " : "")) : "")
-			    + (JobLevel < .@required_jlevel ? (.@required_jlevel - JobLevel) +" níveis de classe " : "")
+			mes "VocÃª precisa alcanÃ§ar mais "
+			    + (BaseLevel < .rebirth_blevel ? ((.rebirth_blevel - BaseLevel) +" nÃ­veis de base "+ (JobLevel < .@required_jlevel ? "e mais " : "")) : "")
+			    + (JobLevel < .@required_jlevel ? (.@required_jlevel - JobLevel) +" nÃ­veis de classe " : "")
 			    + "para continuar evoluindo.";
 			close;
 		}
@@ -95,12 +95,12 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 	if (.@eac&EAJL_2)
 		if (.@eac&(EAJL_UPPER|EAJL_BABY) || roclass(.@eac|EAJL_UPPER) == -1) {
 		mes "Que bom te ver de novo ^008aff"+strcharinfo(0)+"^000000!";
-		mes "O dia está lindo, não acha?";
+		mes "O dia estÃ¡ lindo, nÃ£o acha?";
 			close;
 		}
 	if ((.@eac&EAJ_BASEMASK) == EAJ_NOVICE) {
 		if (JobLevel < .jobchange_first) {
-			mes "Você precisa do nível de classe "+.jobchange_first+" para que consiga evoluir para primeira classe.";
+			mes "VocÃª precisa do nÃ­vel de classe "+.jobchange_first+" para que consiga evoluir para primeira classe.";
 		} else if (Class == Job_Novice_High && .linear_jobchange && lastJob) {
 			mes "Evoluir de classe agora?";
 			next;
@@ -120,9 +120,9 @@ prontera,145,191,5	script	Mestre das Classes#01	4_M_JPNOJI,{
 	}
 	if (roclass(.@eac|EAJL_2_1) == -1 || roclass(.@eac|EAJL_2_2) == -1) {
 		mes "Que bom te ver de novo ^008aff"+strcharinfo(0)+"^000000!";
-		mes "O dia está lindo, não acha?";
+		mes "O dia estÃ¡ lindo, nÃ£o acha?";
 	} else if (!(.@eac&EAJL_2) && JobLevel < .jobchange_second) {
-		mes "Você precisa do nível de classe "+.jobchange_second+" para que consiga evoluir para segunda classe.";
+		mes "VocÃª precisa do nÃ­vel de classe "+.jobchange_second+" para que consiga evoluir para segunda classe.";
 	} else if (.linear_jobchange && lastJob && (.@eac&EAJL_UPPER)) {
 		mes "Evoluir de classe agora?";
 		next;
@@ -145,18 +145,18 @@ function Job_Menu {
 			if (!.@newjob) close;
 			if ((.@newjob == Job_SuperNovice || .@newjob == Job_Super_Baby) && BaseLevel < .supernovice_level) {
 				mes "^FF0000[Mestre das Classes]^000000";
-				mes "Você precisa ter nível de base "+.supernovice_level+" para tornar-se um "+jobname(.@newjob)+".";
+				mes "VocÃª precisa ter nÃ­vel de base "+.supernovice_level+" para tornar-se um "+jobname(.@newjob)+".";
 				close;
 			}
 			mes "^FF0000[Mestre das Classes]^000000";
-			mes "Você tem certeza disso?";
+			mes "VocÃª tem certeza disso?";
 			next;
 		} else {
 			.@newjob = getarg(0);
 		}
 		if (select(" ~ Evoluir para a classe ^0055FF"+ jobname(.@newjob) +"^000000?", " ~ ^777777"+(getargcount() > 1 ? "Voltar": "Cancelar")+"^000000") == 1) {
 			mes "^FF0000[Mestre das Classes]^000000";
-			mes "Agora você é "+A_An(jobname(.@newjob))+"!";
+			mes "Agora vocÃª Ã© "+A_An(jobname(.@newjob))+"!";
 			if (.@newjob == Job_Novice_High && .linear_jobchange)
 				lastJob = Class; // Note: This is incompatible with the Valkyrie rebirth script.
 			jobchange .@newjob;
@@ -253,14 +253,14 @@ Get_Platinum:
 	return;
 
 OnInit:
-	.rebirth_blevel = 99;    // Nível mínimo para evoluir para terceira classe ou renascer.
-	.rebirth_jlevel = 50;    // Nível mínimo para evoluir para terceira classe ou renascer.
-	.jobchange_first = 10;   // Nível mínimo para evoluir para primeira classe.
-	.jobchange_second = 40;  // Nível mínimo para evoluir para segunda classe.
-	.third_classes = 1;      // Habilitar terceira classe? (1: sim / 0: não)
-	.supernovice_level = 45; // Nível de base mínimo para tornar-se um Super Aprendiz.
-	.linear_jobchange = 1;   // Aplicar alterações de classe lineares? (1: sim / 0: não)
-	.skill_point_check = 1;  // Verificar se o jogador usou todos os seus pontos de habilidades? (1: sim / 0: não)
-	.platinum = 1;           // Aplicar habilidades extras automaticamente? (1: sim / 0: não)
+	.rebirth_blevel = 99;    // NÃ­vel mÃ­nimo para evoluir para terceira classe ou renascer.
+	.rebirth_jlevel = 50;    // NÃ­vel mÃ­nimo para evoluir para terceira classe ou renascer.
+	.jobchange_first = 10;   // NÃ­vel mÃ­nimo para evoluir para primeira classe.
+	.jobchange_second = 40;  // NÃ­vel mÃ­nimo para evoluir para segunda classe.
+	.third_classes = 1;      // Habilitar terceira classe? (1: sim / 0: nÃ£o)
+	.supernovice_level = 45; // NÃ­vel de base mÃ­nimo para tornar-se um Super Aprendiz.
+	.linear_jobchange = 1;   // Aplicar alteraÃ§Ãµes de classe lineares? (1: sim / 0: nÃ£o)
+	.skill_point_check = 1;  // Verificar se o jogador usou todos os seus pontos de habilidades? (1: sim / 0: nÃ£o)
+	.platinum = 1;           // Aplicar habilidades extras automaticamente? (1: sim / 0: nÃ£o)
 	end;
 }
